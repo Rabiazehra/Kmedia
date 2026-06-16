@@ -1,0 +1,49 @@
+name: Next.js Build Check
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Lint code
+        run: npm run lint || true
+        continue-on-error: true
+
+      - name: Build Next.js
+        run: npm run build
+
+      # 🚀 NEW STEP: Package the production standalone server files into a zip
+      - name: Package Standalone Server
+        run: |
+          cp -r .next/static .next/standalone/.next/
+          cp -r public .next/standalone/
+          cd .next/standalone
+          zip -r ../../standalone-app.zip .
+
+      # 📦 NEW STEP: Upload the zip so you can download it right from your browser
+      - name: Upload Production Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: standalone-bundle
+          path: standalone-app.zip

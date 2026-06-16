@@ -1,0 +1,239 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Palette — Enhanced */
+  --color-brand-green: #04423f;
+  --color-brand-deep: #022a28;
+  --color-brand-mustard: #f5c542;
+  --color-brand-lime: #9ce069;
+  --color-brand-light: #f5f4ee;
+  --color-brand-rose: #ff6b6b;
+  --color-nav-white: #f7f6f9;
+  --color-pure-white: #ffffff;
+  --color-dark-text: #044340;
+  --color-glass-white: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+
+  /* Custom Typography Link */
+  --font-bebas: var(--font-bebas);
+
+  /* Animation Configurations */
+  --animate-infinite-scroll: infinite-scroll 30s linear infinite;
+  --animate-glow-pulse: glow-pulse 2s ease-in-out infinite;
+  --animate-float: float 3s ease-in-out infinite;
+
+  @keyframes infinite-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-33.33%);
+    }
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(180, 255, 76, 0.2); }
+    50% { box-shadow: 0 0 40px rgba(180, 255, 76, 0.5); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+/* Base style resets */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-brand-green);
+  color: var(--color-pure-white);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom utility class optimized for v4 components */
+.ticker-track {
+  display: flex;
+  width: max-content;
+}
+
+/* 3D transform utilities */
+.perspective-\[1200px\] {
+  perspective: 1200px;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-brand-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-lime);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-mustard);
+}
+
+/* ============================================================
+   RETRO ARCADE ADDITIONS
+   ============================================================ */
+
+/* Hide the system cursor on devices with a fine pointer.
+   GloveCursor component handles the visual replacement. */
+@media (pointer: fine) {
+  html, body, a, button, [role="button"], input, textarea, select, label {
+    cursor: none !important;
+  }
+}
+
+/* Retro font utility (used on the navbar) */
+.font-retro {
+  font-family: var(--font-vt323), "Courier New", ui-monospace, monospace;
+  letter-spacing: 0.08em;
+}
+
+.font-pixel {
+  font-family: var(--font-press-start), "Courier New", ui-monospace, monospace;
+  letter-spacing: 0.02em;
+}
+
+/* Neon glow on text — green/cyan CRT vibe */
+.retro-glow {
+  text-shadow:
+    0 0 4px rgba(180, 255, 76, 0.6),
+    0 0 10px rgba(180, 255, 76, 0.35),
+    0 0 18px rgba(180, 255, 76, 0.15);
+}
+.retro-glow-cyan {
+  text-shadow:
+    0 0 4px rgba(116, 185, 255, 0.7),
+    0 0 10px rgba(116, 185, 255, 0.4),
+    0 0 18px rgba(116, 185, 255, 0.2);
+}
+.retro-glow-rose {
+  text-shadow:
+    0 0 4px rgba(255, 79, 163, 0.7),
+    0 0 10px rgba(255, 79, 163, 0.4),
+    0 0 18px rgba(255, 79, 163, 0.2);
+}
+
+/* Faint CRT flicker animation, applied to navbar */
+@keyframes retroFlicker {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.96; }
+  52%      { opacity: 1; }
+  54%      { opacity: 0.92; }
+  56%      { opacity: 1; }
+}
+.animate-retro-flicker {
+  animation: retroFlicker 5s ease-in-out infinite;
+}
+
+/* Blinking pixel caret */
+@keyframes pixelBlink {
+  0%, 49%   { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.animate-pixel-blink {
+  animation: pixelBlink 0.9s steps(1) infinite;
+}
+
+/* Scrolling "marquee" line for retro header */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 22s linear infinite;
+}
+
+/* CRT scanlines for navbar (re-usable) */
+.crt-scanlines {
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.18) 0px,
+    rgba(0, 0, 0, 0.18) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+}
+
+/* Subtle static noise inside the navbar */
+.crt-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 150px 150px;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  opacity: 0.07;
+}
+
+/* Chunky pixel border button */
+.game-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  font-family: var(--font-press-start), "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #04423f;
+  background: #b4ff4c;
+  border: 2px solid #04423f;
+  box-shadow:
+    4px 4px 0 0 rgba(0, 0, 0, 0.6),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.25);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+.game-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow:
+    6px 6px 0 0 rgba(0, 0, 0, 0.6),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.35);
+  background: #cdf56c;
+}
+.game-button:active {
+  transform: translate(2px, 2px);
+  box-shadow:
+    1px 1px 0 0 rgba(0, 0, 0, 0.6),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+/* Selection styling to match the theme */
+::selection {
+  background: #b4ff4c;
+  color: #04423f;
+  text-shadow: none;
+}
+
+/* Respect users who don't want motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-retro-flicker,
+  .animate-pixel-blink,
+  .animate-marquee {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,36 @@
+name: Next.js CI Check
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        # Using --legacy-peer-deps prevents installation failure due to futuristic version conflicts
+        run: npm install --legacy-peer-deps
+
+      - name: Lint code
+        run: npm run lint || true
+        continue-on-error: true # Allow linting errors to be reported as warnings without failing the build
+
+      - name: Disable Next.js Telemetry
+        run: npx next telemetry disable # Prevents telemetry prompts in CI environments
+
+      - name: Build and Export Next.js
+        run: npm run build
+        env:
+          NEXT_DISABLE_SOURCEMAPS: true
