@@ -124,6 +124,11 @@ export default function ContactSection() {
             <span className="text-[#b4ff4c]">📍</span>
             Office No.2, Naseem Arcade IDC, I-9, Islamabad
           </span>
+          <span className="hidden md:block h-4 w-px bg-white/20" />
+          <span className="flex items-center gap-2">
+            <span className="text-[#b4ff4c]">📍</span>
+            Office 348, 3rd Floor, SIT Tower, Dubai Silicon Oasis
+          </span>
         </motion.div>
       </div>
     </section>

@@ -108,8 +108,12 @@ export default function Footer() {
                                 </a>
                             </li>
                             <li className="flex flex-col">
-                                <span className="text-[10px] uppercase tracking-widest text-white/30 mb-1">Office</span>
+                                <span className="text-[10px] uppercase tracking-widest text-white/30 mb-1">Islamabad Office</span>
                                 <span className="text-white">Office No.2, Naseem Arcade IDC, I-9, Islamabad</span>
+                            </li>
+                            <li className="flex flex-col">
+                                <span className="text-[10px] uppercase tracking-widest text-white/30 mb-1">Dubai Office</span>
+                                <span className="text-white">Office Number 348, 3rd Floor, SIT Tower, Dubai Silicon Oasis, Dubai</span>
                             </li>
                         </ul>
                     </div>
