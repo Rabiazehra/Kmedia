@@ -36,7 +36,7 @@ const posts: BlogPost[] = [
     category: "Performance Lead",
     title: "MOIZ — THE PERFORMANCE MIND",
     excerpt:
-      "Moiz runs paid acquisition. He's managed over $12M in ad spend across Meta, Google, TikTok, and YouTube. He's the person who will tell you the campaign isn't ready, the creative needs one more iteration, and the budget should pause this week. He thinks in ROAS, writes SQL for fun, and is allergic to vanity metrics.",
+      "Moiz runs paid acquisition. He's managed over $2M in ad spend across Meta, Google, TikTok, and YouTube. He's the person who will tell you the campaign isn't ready, the creative needs one more iteration, and the budget should pause this week. He thinks in ROAS, writes SQL for fun, and is allergic to vanity metrics.",
     author: "Performance Lead",
     date: "Since 2023",
     readTime: "Ads",
