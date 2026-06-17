@@ -11,7 +11,7 @@ const teamMembers = [
     role: "CEO",
     image: "/atta.jpeg",
     heading: "ATTA — THE GUY WHO SIGNS THE WORK",
-    bio: "Founder and head of strategy. Ali spent 6 years inside two of Pakistan's fastest-growing consumer brands before starting KRELIMEDIA. He runs every kickoff, signs off on every campaign, and is the person you'll be in Slack with at 11pm. He believes the best strategy is the one the team actually executes.",
+    bio: "Founder and head of strategy. Atta spent 6 years inside two of Pakistan's fastest-growing consumer brands before starting KRELIMEDIA. He runs every kickoff, signs off on every campaign, and is the person you'll be in Slack with at 11pm. He believes the best strategy is the one the team actually executes.",
     linkedin: "#",
   },
   {
@@ -27,11 +27,11 @@ const teamMembers = [
     role: "Creative Head",
     image: "/ali.png",
     heading: "ALI — THE WORDS, THE RANKINGS, THE STRATEGY",
-    bio: "Atta leads content and SEO. He's been writing for the web since before content marketing was a job title. He runs the editorial calendar, owns the keyword strategy, and writes the long-form pieces that earn real links. He reads every brief, edits every draft, and never misses a deadline. Most importantly: he ships.",
+    bio: "Muntazir leads content and SEO. He's been writing for the web since before content marketing was a job title. He runs the editorial calendar, owns the keyword strategy, and writes the long-form pieces that earn real links. He reads every brief, edits every draft, and never misses a deadline. Most importantly: he ships.",
     linkedin: "https://linkedin.com/in/muntazir-ali-shan-519772252",
   },
   {
-    name: "Abdul Moiz",
+    name: "Abdul Moiz Sajjad",
     role: "Growth & Ecosystem Lead",
     image: "/moiz.jpeg",
     heading: "MOIZ — THE PERFORMANCE MIND",
