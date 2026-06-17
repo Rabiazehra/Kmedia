@@ -10,6 +10,7 @@ import {
   Palette,
   BarChart2,
   Globe,
+  Code2,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
@@ -48,10 +49,10 @@ const services = [
     accent: "#a29bfe",
   },
   {
-    icon: <BarChart2 className="w-8 h-8" />,
-    title: "Growth Strategy",
+    icon: <Code2 className="w-8 h-8" />,
+    title: "Web Development & UI/UX",
     description:
-      "Data-led growth planning. We audit your current presence, identify gaps, and build a roadmap that consistently moves the needle.",
+      "Custom websites, landing pages, and web apps built with modern frameworks. From UI/UX wireframing to full-stack development — we design and build digital experiences that convert.",
     gradient: "from-[#55efc4] to-[#00b894]",
     accent: "#55efc4",
   },
