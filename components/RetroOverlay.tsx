@@ -1,29 +1,8 @@
 "use client";
-import { useEffect } from "react";
 import { useAccessibility } from "./AccessibilityContext";
-import { useSound } from "./useSound";
 
 export default function RetroOverlay() {
   const { disableVisualEffects } = useAccessibility();
-  const playAmbient = useSound("/sounds/hover.mp3", { volume: 0.05, loop: true });
-
-  useEffect(() => {
-    // Browsers block autoplay audio until a user interaction occurs.
-    // We trigger the ambient hum on the first click or keypress to "unlock" the audio context.
-    const handleFirstInteraction = () => {
-      playAmbient();
-      window.removeEventListener("mousedown", handleFirstInteraction);
-      window.removeEventListener("keydown", handleFirstInteraction);
-    };
-
-    window.addEventListener("mousedown", handleFirstInteraction);
-    window.addEventListener("keydown", handleFirstInteraction);
-
-    return () => {
-      window.removeEventListener("mousedown", handleFirstInteraction);
-      window.removeEventListener("keydown", handleFirstInteraction);
-    };
-  }, [playAmbient]);
 
   return (
     <>

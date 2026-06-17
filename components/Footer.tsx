@@ -7,7 +7,7 @@ import { useSound } from "./useSound";
 
 export default function Footer() {
     // WhatsApp configuration
-    const whatsappNumber = "92332444816";
+    const whatsappNumber = "923324448164";
     const playHover = useSound("/sounds/hover.mp3", { volume: 0.3, cooldownMs: 80 });
 
     return (

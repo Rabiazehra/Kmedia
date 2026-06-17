@@ -100,7 +100,8 @@ export const metadata: Metadata = {
     canonical: "https://krelimedia.com",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon-krelimedia.png",
+    apple: "/favicon-krelimedia.png",
   },
 };
 
