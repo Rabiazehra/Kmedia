@@ -166,8 +166,6 @@ export default function AnimatedLogoIntro() {
         )}
       </AnimatePresence>
 
-      {/* Content wrapper — appears after intro */}
-      {showContent && <div id="main-content" />}
     </>
   );
 }

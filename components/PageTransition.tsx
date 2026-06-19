@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { useAccessibility } from "./AccessibilityContext";
 import { useSound } from "./useSound";
@@ -21,6 +21,7 @@ import { useSound } from "./useSound";
 export default function PageTransition() {
   const { disableVisualEffects } = useAccessibility();
   const pathname = usePathname();
+  const router = useRouter();
   const playClick = useSound("/sounds/click.mp3", { volume: 0.5 });
   const [phase, setPhase] = useState<"idle" | "exit" | "enter">("idle");
   const isNavigatingRef = useRef(false);
@@ -71,15 +72,10 @@ export default function PageTransition() {
       playClick();
       setPhase("exit");
 
-      // After the exit animation, actually navigate
-      // We use location.href instead of router.push so the page
-      // re-runs the template animation on the new route.
+      // After the exit animation, navigate using the router
+      // so we avoid a hard reload that triggers hydration crash.
       window.setTimeout(() => {
-        // Use history.pushState + dispatch popstate-like behavior by
-        // simply assigning href — next/link will not have been
-        // called, so we trigger a hard navigation to ensure
-        // app/template.tsx runs.
-        window.location.assign(anchor.href);
+        router.push(anchor.href);
       }, EXIT_MS);
     };
 

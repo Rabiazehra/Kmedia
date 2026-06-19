@@ -1,6 +1,14 @@
 "use client";
 
-import GloveCursor from "./GloveCursor";
+import dynamic from "next/dynamic";
+
+/**
+ * Dynamically import GloveCursor with SSR disabled to prevent
+ * hydration mismatches. GloveCursor relies on browser-only APIs
+ * (matchMedia, requestAnimationFrame) and returns null on the server,
+ * which would cause React to discard the entire server-rendered tree.
+ */
+const GloveCursor = dynamic(() => import("./GloveCursor"), { ssr: false });
 
 /**
  * CustomCursor
